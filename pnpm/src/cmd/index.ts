@@ -175,6 +175,8 @@ for (let i = 0; i < commands.length; i++) {
     throw new Error(`The command at index ${i} doesn't have command names`)
   }
   for (const commandName of commandNames) {
+    //! 将命令设置到 handlerByCommandName 对象上, 在main.ts中会使用
+    // 例如：handlerByCommandName['install'] = install.handler
     handlerByCommandName[commandName] = handler as Command
     helpByCommandName[commandName] = help
     cliOptionsTypesByCommandName[commandName] = cliOptionsTypes
@@ -206,7 +208,7 @@ handlerByCommandName['completion-server'] = createCompletionServer({
 function initialCompletion () {
   return Object.keys(handlerByCommandName).map((name) => ({ name }))
 }
-
+// expose to main.ts
 export const pnpmCmds = handlerByCommandName
 
 export function getCliOptionsTypes (commandName: string) {

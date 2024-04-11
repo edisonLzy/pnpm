@@ -82,7 +82,7 @@ export const shorthands: Record<string, string> = {
   D: '--dev',
   P: '--production',
 }
-
+// 注册install命令
 export const commandNames = ['install', 'i']
 
 export function help (): string {
@@ -316,7 +316,7 @@ export type InstallCommandOptions = Pick<Config,
   includeOnlyPackageFiles?: boolean
   confirmModulesPurge?: boolean
 } & Partial<Pick<Config, 'modulesCacheMaxAge' | 'pnpmHomeDir' | 'preferWorkspacePackages'>>
-
+// 执行 pnpm install 执行的入口
 export async function handler (opts: InstallCommandOptions): Promise<void> {
   const include = {
     dependencies: opts.production !== false,

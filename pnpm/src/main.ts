@@ -277,6 +277,7 @@ export async function main (inputArgv: string[]) {
         config.nodeVersion = config.useNodeVersion
       }
     }
+    // 执行对应的命令, 比如 install
     let result = pnpmCmds[cmd ?? 'help'](
       // TypeScript doesn't currently infer that the type of config
       // is `Omit<typeof config, 'reporter'>` after the `delete config.reporter` statement

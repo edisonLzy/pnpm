@@ -62,9 +62,6 @@
     "typescript": "5.3.3",
     "verdaccio": "5.20.1"
   },
-  "engines": {
-    "pnpm": ">=9"
-  },
   "pnpm": {
     "overrides": {
       "clipanion": "3.2.0-rc.6",
